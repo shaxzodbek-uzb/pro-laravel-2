@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 class AbstractController extends Controller
 {
     protected $service;
+    protected $serviceClass;
     protected $storeRequestClass;
     protected $updateRequestClass;
+    public function __construct() {
+        $this->service = new $this->serviceClass;
+    }
     public function index()
     {
         $items = $this->service->index();
@@ -20,15 +24,13 @@ class AbstractController extends Controller
 
     public function store()
     {
-        $request = new $this->storeRequestClass;
-        $item = $this->service->store($request->validated());
+        $item = $this->service->store(request()->all());
         return response()->json(['item' => $item]);
     }
 
-    public function update($id)
+    public  function update($id)
     {
-        $request = new $this->updateRequestClass;
-        $item = $this->service->update($request->validated(), $id);
+        $item = $this->service->update(request()->all(), $id);
         return response()->json(['item' => $item]);
     }
 }

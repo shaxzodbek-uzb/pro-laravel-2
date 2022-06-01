@@ -16,13 +16,48 @@ class AbstractService
 
     public function store(array $data)
     {
-        return $this->model::create($data);
+        // validate
+        //get fields
+        $fields = $this->getFields();
+        $rules = [];
+        foreach ($fields as $field) {
+            $rules[$field->getName()] = $field->getRules();
+        }
+        $validator = \Illuminate\Support\Facades\Validator::make($data, $rules);
+        if($validator->fails()){
+            dd($validator->errors());
+        }
+        $data = $validator->validated();
+        $object = new $this->model;
+        foreach($fields as $field){
+            $field->fill($object, $data);
+        }
+        $object->save();
+        return $object;
     }
     
     public function update(array $data, $id)
     {
         $item = $this->show($id);
-        $item->update($data);
+        $fields = $this->getFields();
+        $rules = [];
+        foreach ($fields as $field) {
+            $rules[$field->getName()] = $field->getRules();
+        }
+        $validator = \Illuminate\Support\Facades\Validator::make($data, $rules);
+        if($validator->fails()){
+            dd($validator->errors());
+        }
+        $data = $validator->validated();
+        foreach($fields as $field){
+            $field->fill($item, $data);
+        }
+        $item->update();
         return $item;
+    }
+
+    public function getFields()
+    {
+        return [];
     }
 }
