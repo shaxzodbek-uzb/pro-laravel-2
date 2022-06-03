@@ -16,8 +16,11 @@ class AbstractController extends Controller
         return response()->json(['items' => $items]);
     }
 
-    public function show($id)
+    public function show($resource, $id = null)
     {
+        if(is_null($id)){
+            $id = $resource;
+        }
         $item = $this->service->show($id);
         return response()->json(['item' => $item]);
     }
@@ -28,8 +31,11 @@ class AbstractController extends Controller
         return response()->json(['item' => $item]);
     }
 
-    public  function update($id)
+    public  function update($resource, $id = null)
     {
+        if(is_null($id)){
+            $id = $resource;
+        }
         $item = $this->service->update(request()->all(), $id);
         return response()->json(['item' => $item]);
     }
