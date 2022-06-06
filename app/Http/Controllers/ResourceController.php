@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Fields\Store\MoneyField;
-use App\Fields\Store\TextField;
 use App\Http\Services\ResourceService;
-
 
 class ResourceController extends AbstractController
 {

@@ -28,7 +28,7 @@ class AbstractController extends Controller
     public function store()
     {
         $item = $this->service->store(request()->all());
-        return response()->json(['item' => $item]);
+        return response()->json(['item' => $item], 201);
     }
 
     public  function update($resource, $id = null)
@@ -38,5 +38,14 @@ class AbstractController extends Controller
         }
         $item = $this->service->update(request()->all(), $id);
         return response()->json(['item' => $item]);
+    }
+
+    public function destroy($resource, $id = null)
+    {
+        if(is_null($id)){
+            $id = $resource;
+        }
+        $item = $this->service->destroy($id);
+        return response()->json(['success' => true, 'id' => $id]);
     }
 }

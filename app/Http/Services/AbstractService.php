@@ -60,4 +60,11 @@ class AbstractService
     {
         return [];
     }
+
+    public function destroy($id)
+    {
+        $item = $this->show($id);
+        $item->delete();
+        return $item;
+    }
 }
