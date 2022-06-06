@@ -24,11 +24,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::resource('products', ProductController::class);
 // Route::resource('product-categories', ProductCategoryController::class);
 // GET /{resource}
-Route::get('{resource}/', [ResourceController::class, 'index']);
-Route::post('{resource}/', [ResourceController::class, 'store']);
-Route::get('{resource}/{id}', [ResourceController::class, 'show']);
-Route::put('{resource}/{id}', [ResourceController::class, 'update']);
-Route::delete('{resource}/{id}', [ResourceController::class, 'destroy']);
+// route('resource.show', ['resource' => 'products', 'id' => 1])
+Route::get('{resource}/', [ResourceController::class, 'index'])->name('resource.index');
+Route::post('{resource}/', [ResourceController::class, 'store'])->name('resource.store');
+Route::get('{resource}/{id}', [ResourceController::class, 'show'])->name('resource.show');
+Route::put('{resource}/{id}', [ResourceController::class, 'update'])->name('resource.update');
+Route::delete('{resource}/{id}', [ResourceController::class, 'destroy'])->name('resource.destroy');
 // POST /{resource}/{id}
 // GET /{resource}/{id}
 // DELETE /{resource}/{id}
