@@ -59,6 +59,13 @@ class ProductTest extends TestCase
     // update
     public function test_update_response()
     {
+        $product_data = [
+            'name' => 'Product test',
+            'price' => '100',
+        ];
+        $response = $this->post('/api/products', $product_data);
+
+        $response->assertStatus(201);
         $product = \App\Models\Product::first();
         $product->name = 'Product test updated';
         $product->_method = 'PUT';
@@ -82,6 +89,13 @@ class ProductTest extends TestCase
     // delete
     public function test_delete_response()
     {
+        $product_data = [
+            'name' => 'Product test',
+            'price' => '100',
+        ];
+        $response = $this->post('/api/products', $product_data);
+
+        $response->assertStatus(201);
         $product = \App\Models\Product::first();
         $response = $this->delete('/api/products/' . $product->id);
 
