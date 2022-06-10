@@ -1,0 +1,23 @@
+name: Deploy to server
+on:
+  push:
+    branches: [master]
+
+jobs:
+  job_one:
+    name: Deploy to dev server
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test patron server
+        uses: appleboy/ssh-action@master
+        with:
+          host: 185.217.131.103
+          username: root
+          key: ${{ secrets.PATRON_SECRET }}
+          port: 22
+          script: |
+            cd /var/www/www-root/data/www/pro-laravel-2/
+            git pull
+            composer install
+            /opt/php81/bin/php artisan migrate
+            /opt/php81/bin/php artisan optimize
