@@ -1,9 +1,9 @@
 <?php
-namespace App\Http\Resources;
+namespace OnlineMarket\Resources;
 
-use App\Fields\Store\MoneyField;
-use App\Fields\Store\TextField;
-use App\Models\Product as ModelsProduct;
+use OnlineMarket\Fields\Store\MoneyField;
+use OnlineMarket\Fields\Store\TextField;
+use OnlineMarket\Models\Product as ModelsProduct;
 
 class Product
 {

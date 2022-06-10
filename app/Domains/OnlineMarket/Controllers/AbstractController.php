@@ -1,5 +1,8 @@
 <?php
-namespace App\Http\Controllers;
+
+namespace OnlineMarket\Controllers;
+
+use App\Http\Controllers\Controller;
 
 class AbstractController extends Controller
 {

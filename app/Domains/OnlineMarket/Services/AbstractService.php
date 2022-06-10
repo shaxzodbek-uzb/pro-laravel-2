@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Services;
+namespace OnlineMarket\Services;
 
 class AbstractService
 {

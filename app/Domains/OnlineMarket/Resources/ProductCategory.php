@@ -1,8 +1,8 @@
 <?php
-namespace App\Http\Resources;
+namespace OnlineMarket\Resources;
 
-use App\Fields\Store\TextField;
-use App\Models\ProductCategory as ModelsProductCategory;
+use OnlineMarket\Fields\Store\TextField;
+use OnlineMarket\Models\ProductCategory as ModelsProductCategory;
 
 class ProductCategory
 {
