@@ -19,5 +19,5 @@ jobs:
             cd /var/www/www-root/data/www/pro-laravel-2/
             git pull
             /opt/php81/bin/php /usr/local/bin/composer install -n
-            /opt/php81/bin/php artisan migrate -n
-            /opt/php81/bin/php artisan optimize -n
+            /opt/php81/bin/php artisan migrate --force
+            /opt/php81/bin/php artisan optimize --force
