@@ -18,6 +18,6 @@ jobs:
           script: |
             cd /var/www/www-root/data/www/pro-laravel-2/
             git pull
-            composer install -n
+            /opt/php81/bin/php /usr/local/bin/composer install -v
             /opt/php81/bin/php artisan migrate
             /opt/php81/bin/php artisan optimize
