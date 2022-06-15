@@ -12,6 +12,7 @@
         "laravel/jetstream": "^2.8",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
+        "shaxzodbek-uzb/online-market": "^0.2.0",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
@@ -26,11 +27,16 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "OnlineMarket\\": "app/Domains/OnlineMarket/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../shaxzodbek-uzb/online-market"
+        }
+    ],
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"

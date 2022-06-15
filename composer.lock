@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5bbe94e5d8b3d06cbe062f02d8bf7ae9",
+    "content-hash": "27cd9de321692a50b42c966de25247aa",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -3338,6 +3338,32 @@
                 }
             ],
             "time": "2022-03-27T21:42:02+00:00"
+        },
+        {
+            "name": "shaxzodbek-uzb/online-market",
+            "version": "0.2",
+            "dist": {
+                "type": "path",
+                "url": "../shaxzodbek-uzb/online-market",
+                "reference": "fc7ac76cd3521b3bc80836539f2f0edd9b9d6e2b"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "OnlineMarket\\OnlineMarketServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OnlineMarket\\": "/"
+                }
+            },
+            "description": "Yangi package uchun yozilgan",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "symfony/console",
